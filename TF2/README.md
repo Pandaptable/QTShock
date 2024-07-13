@@ -1,4 +1,4 @@
-# TF2 [Qtshock](https://qtshock.com) integration
+# TF2 [QTShock](https://qtshock.com) integration
 Shocks you on crit death and normal death (both configuarable)
 
 (i also have it beeping on kill but you can change that if you edit `main.py`)

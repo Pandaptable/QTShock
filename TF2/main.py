@@ -2,7 +2,7 @@ import re
 import time
 import os
 import requests
-from config import CONSOLE_FILE, PLAYER_NAME, QTSHOCK_IP, SHOCK_URL, BEEP_URL, BEEP_SHOCKER, DEATH_SHOCKER, CRIT_DEATH_SHOCKER, CRIT_DEATH_SHOCK_STRENGTH, DEATH_SHOCK_STRENGTH
+from config import CONSOLE_FILE, PLAYER_NAME, QTSHOCK_IP, SHOCK_URL, BEEP_URL, BEEP_SHOCKER, DEATH_SHOCKER, CRIT_DEATH_SHOCKER, CRIT_DEATH_SHOCK_STRENGTH, DEATH_SHOCK_STRENGTH, PRINT_FILTER
 
 def listen(log_file):
     log_file.seek(0, os.SEEK_END)
@@ -19,12 +19,12 @@ def listen(log_file):
             time.sleep(0.1)
             continue
 
-        print(line.strip())
-        parse(line)
+        if not any(filter_text in line for filter_text in PRINT_FILTER):
+            print(line.strip())
+            parse(line)
         last_size = log_file.tell()
 
 def parse(line):
-
     if killfeed_match := re.match(
             """\d\d\/\d\d\/\d\d\d\d - \d\d:\d\d:\d\d: ([^\n]{0,32}) killed ([^\n]{0,32}) with (\w+)\. ?(\(crit\))?""",
             line):

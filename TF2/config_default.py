@@ -27,3 +27,17 @@ VIBRATE_URL = f"http://{QTSHOCK_IP}/vibrate" # http://qtshock.local/vibrate  -> 
 
 BEEP_URL = f"http://{QTSHOCK_IP}/beep" # http://qtshock.local/beep  -> POST -> FormData
                                        # (has to have a shocker parameter, this is the index of the shocker likely 0.)
+
+# List of strings to filter out of console output (if the line contains anything in this then it'll be filtered)
+PRINT_FILTER = [
+                "EmitSound:",
+                "CMaterial::",
+                "Error Vertex File",
+                "Invalid sample rate",
+                "Cannot update control point",
+                "doesn't have attachment",
+                "Failed to load sound",
+                "Soundscape:",
+                "Error Index File for",
+                "MP3 initialized with no sound cache"
+                ]

@@ -3,10 +3,10 @@ name: Build
 on:
   push:
     paths:
-      - Celeste/QTShock-CelesteModule.cs
-      - Celeste/QTShock-CelesteModuleSettings.cs
-      - Celeste/QTShock-Celeste.sln
-      - Celeste/QTShock-Celeste.csproj
+      - Celeste/QTShockModule.cs
+      - Celeste/QTShockModuleSettings.cs
+      - Celeste/QTShock.sln
+      - Celeste/QTShock.csproj
 
 jobs:
   build:

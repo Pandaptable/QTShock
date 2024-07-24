@@ -11,7 +11,7 @@ jobs:
     - name: Parse Everest Dependency
       working-directory: Celeste
       run: |
-        EVERESTDEP=$(yq eval '.[0].Dependencies[] | select(.Name == "Everest").Version' -- everest.yaml)
+        EVERESTDEP=$(yq eval '.[0].Dependencies[] | select(.Name == "EverestCore").Version' -- everest.yaml)
         echo "EVERESTDEP=$EVERESTDEP" >> $GITHUB_ENV
 
     - name: Print Everest Dependency

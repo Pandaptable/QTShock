@@ -1,4 +1,8 @@
 # [QTShock](https://qtshock.com) game integrations
-Repo containing my game integrations I've made for QTShock (currently only tf2)
 
-Each integration can be found in their respective folder, with setup instructions (i might forget to do this sometimes)
+Repo containing my game integrations I've made for QTShock.
+
+## Current integrations
+
+* [TF2](TF2/)
+* [Celeste](Celeste/)

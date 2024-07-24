@@ -54,11 +54,11 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: main
-        path: QTShock_Celeste.zip
+        path: QTShock.zip
 
     - name: GH Release
       uses: softprops/action-gh-release@v2.0.8
       with:
         tag_name: Celeste
-        files: QTShock_Celeste.zip
+        files: QTShock.zip
             

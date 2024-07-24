@@ -18,12 +18,11 @@ jobs:
       run: echo "EVERESTDEP=${{ env.EVERESTDEP }}"
 
     - name: Download Everest stripped lib
-      working-directory: Celeste
       uses: robinraju/release-downloader@v1.2
       with:
         repository: EverestAPI/Everest
         tag: stable-${{ env.EVERESTDEP }}
-        fileName: lib-stripped.zip
+        fileName: Celeste/lib-stripped.zip
      
     - name: Extract lib-stripped.zip
       working-directory: Celeste

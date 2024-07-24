@@ -1,5 +1,5 @@
-namespace Celeste.Mod.QTShock_Celeste;
-public class QTShock_CelesteModuleSettings : EverestModuleSettings {
+namespace Celeste.Mod.QTShock;
+public class QTShockModuleSettings : EverestModuleSettings {
 
         [SettingName("Toggle Mod")]
         [SettingSubText("Toggles the mod on and off.")]

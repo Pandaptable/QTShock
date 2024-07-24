@@ -69,29 +69,29 @@
                     {
                         string filePath = file.GetMetadata("FullPath");
                         string entryName = GetRelativePath(projectDir, filePath);
-                        
+
                         zip.CreateEntryFromFile(filePath, entryName);
                     }
                 }
-    
+
                 string GetRelativePath(string fromPath, string toPath)
                 {
                     if (string.IsNullOrEmpty(fromPath)) throw new ArgumentNullException(nameof(fromPath));
                     if (string.IsNullOrEmpty(toPath))   throw new ArgumentNullException(nameof(toPath));
-                
+
                     Uri fromUri = new Uri(fromPath);
                     Uri toUri = new Uri(toPath);
-                
+
                     if (fromUri.Scheme != toUri.Scheme) { return toPath; } // path can't be made relative.
-                
+
                     Uri relativeUri = fromUri.MakeRelativeUri(toUri);
                     string relativePath = Uri.UnescapeDataString(relativeUri.ToString());
-                
+
                     if (toUri.Scheme.Equals("file", StringComparison.InvariantCultureIgnoreCase))
                     {
                         relativePath = relativePath.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
                     }
-                
+
                     return relativePath;
                 }
             ]]>

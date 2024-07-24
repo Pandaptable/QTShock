@@ -10,7 +10,7 @@ public class QTShock_CelesteModule : EverestModule {
 
     public override Type SettingsType => typeof(QTShock_CelesteModuleSettings);
     public static QTShock_CelesteModuleSettings Settings => (QTShock_CelesteModuleSettings) Instance._Settings;
-    
+
     private static HttpClient client = new();
     private string qtShockIp;
 
@@ -36,19 +36,19 @@ public class QTShock_CelesteModule : EverestModule {
     private void OnDie(Player p)
     {
         if (!Settings.Toggle) return;
-        
+
         Dictionary<string, string> paramsDict = new Dictionary<string, string>();
         paramsDict.Add("shocker", Settings.Shocker.ToString());
-        
+
         if (client.BaseAddress == null) {
-            client.BaseAddress = new Uri("http://" + qtShockIp); 
+            client.BaseAddress = new Uri("http://" + qtShockIp);
         }
         switch (Settings.Type)
         {
             case QTShock_CelesteModuleSettings.EnumType.Beep:
                 _ = Task.Run(async () =>
                 {
-                    var response = await client.PostAsync("/beep", new FormUrlEncodedContent(paramsDict)); 
+                    var response = await client.PostAsync("/beep", new FormUrlEncodedContent(paramsDict));
                     Console.WriteLine(response.StatusCode);
                     Console.WriteLine(await response.Content.ReadAsStringAsync());
                 });
@@ -58,7 +58,7 @@ public class QTShock_CelesteModule : EverestModule {
                 paramsDict.Add("strength", Settings.Strength.ToString());
                 _ = Task.Run(async () =>
                 {
-                    var response = await client.PostAsync("/vibrate", new FormUrlEncodedContent(paramsDict)); 
+                    var response = await client.PostAsync("/vibrate", new FormUrlEncodedContent(paramsDict));
                     Console.WriteLine(response.StatusCode);
                     Console.WriteLine(await response.Content.ReadAsStringAsync());
                 });
@@ -68,7 +68,7 @@ public class QTShock_CelesteModule : EverestModule {
                 paramsDict.Add("strength", Settings.Strength.ToString());
                 _ = Task.Run(async () =>
                 {
-                    var response = await client.PostAsync("/shock", new FormUrlEncodedContent(paramsDict)); 
+                    var response = await client.PostAsync("/shock", new FormUrlEncodedContent(paramsDict));
                     Console.WriteLine(response.StatusCode);
                     Console.WriteLine(await response.Content.ReadAsStringAsync());
                 });

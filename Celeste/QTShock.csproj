@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <AssemblyName>QTShock_Celeste</AssemblyName>
-        <RootNamespace>Celeste.Mod.QTShock_Celeste</RootNamespace>
+        <AssemblyName>QTShock</AssemblyName>
+        <RootNamespace>Celeste.Mod.QTShock</RootNamespace>
         <LangVersion>latest</LangVersion>
         <CelestePrefix Condition="'$(CelestePrefix)' == '' And Exists('..\..\Celeste.dll')">..\..</CelestePrefix>
         <CelestePrefix Condition="'$(CelestePrefix)' == ''">lib-stripped</CelestePrefix>
@@ -33,15 +33,15 @@
         <Copy SourceFiles="$(OutputPath)\$(AssemblyName).pdb" DestinationFolder="..\bin" />
     </Target>
 
-    <Target Name="PackageMod" AfterTargets="CopyFiles" Inputs="$(ZippedFiles)" Outputs="..\QTShock_Celeste.zip" Condition="'$(Configuration)' == 'Release'">
+    <Target Name="PackageMod" AfterTargets="CopyFiles" Inputs="$(ZippedFiles)" Outputs="..\QTShock.zip" Condition="'$(Configuration)' == 'Release'">
         <ItemGroup>
             <FilesToPackage Include="$(ZippedFiles)" />
         </ItemGroup>
-        <PackageMod Files="@(FilesToPackage)" OutputPath="..\QTShock_Celeste.zip" />
+        <PackageMod Files="@(FilesToPackage)" OutputPath="..\QTShock.zip" />
     </Target>
 
     <PropertyGroup>
-        <PathMap>$(MSBuildProjectDirectory)=QTShock_Celeste/</PathMap>
+        <PathMap>$(MSBuildProjectDirectory)=QTShock/</PathMap>
     </PropertyGroup>
 
     <!-- Inline task used to create a .zip for the mod -->

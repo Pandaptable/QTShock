@@ -22,7 +22,8 @@ jobs:
       with:
         repository: EverestAPI/Everest
         tag: stable-${{ env.EVERESTDEP }}
-        fileName: Celeste/lib-stripped.zip
+        fileName: lib-stripped.zip
+        out-file-path: Celeste
      
     - name: Extract lib-stripped.zip
       working-directory: Celeste

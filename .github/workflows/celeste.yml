@@ -1,6 +1,12 @@
 name: Build
 
-on: [push]
+on:
+  push:
+    paths:
+      - Celeste/QTShock-CelesteModule.cs
+      - Celeste/QTShock-CelesteModuleSettings.cs
+      - Celeste/QTShock-Celeste.sln
+      - Celeste/QTShock-Celeste.csproj
 
 jobs:
   build:
